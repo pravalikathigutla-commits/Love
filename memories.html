@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Memories</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    text-align: center;
+}
+
+/* Title */
+h1 {
+    padding: 20px;
+    color: #c9184a;
+}
+
+/* Gallery Layout */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* Images */
+.gallery img {
+    width: 250px;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.gallery img:hover {
+    transform: scale(1.08);
+}
+
+/* Popup box */
+#popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    width: 300px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+#popup h3 {
+    color: #c9184a;
+}
+
+#closeBtn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    border: none;
+    background: #c9184a;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Our Memories 📸</h1>
+<p>The best part of my life 💕</p>
+
+<div class="gallery">
+
+    <img src="pooji7.jpeg" onclick="showInfo('This picture reminds me of the purest moments we shared. Even today, it brings a small smile and a lot of memories.')">
+
+    <img src="pooji5.jpeg" onclick="showInfo('A beautiful memory frozen in time… this moment will always stay close to my heart.')">
+
+    <img src="pooj6.jpeg" onclick="showInfo('Every time I see this, I remember how special those days felt.')">
+
+    <img src="pooj2.jpeg" onclick="showInfo('Just a simple picture, but it carries a thousand emotions inside it.')">
+
+    <img src="pooj 4.jpeg" onclick="showInfo('One of those moments I will never forget, no matter how much time passes.')">
+
+</div>
+
+<!-- Popup -->
+<div id="popup">
+    <h3>About this memory</h3>
+    <p id="popupText"></p>
+    <button id="closeBtn" onclick="closePopup()">Close</button>
+</div>
+
+<script>
+function showInfo(text) {
+    document.getElementById("popupText").innerText = text;
+    document.getElementById("popup").style.display = "block";
+}
+
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
+</script>
+
+</body>
+</html>

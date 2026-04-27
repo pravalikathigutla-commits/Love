@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Our Story 💔</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+    color: white;
+}
+
+/* title outside box */
+h1 {
+    position: absolute;
+    top: 20px;
+    width: 100%;
+    text-align: center;
+    font-size: 28px;
+}
+
+/* container */
+.box {
+    width: 80%;
+    max-width: 420px;
+    text-align: center;
+
+    padding: 25px;
+    border-radius: 20px;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(12px);
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    transition: opacity 1s ease;
+}
+
+/* fade */
+.fade {
+    opacity: 0;
+}
+
+/* button */
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+
+    background: #ff4d6d;
+    color: white;
+}
+
+/* 💌 typewriter effect */
+.typewriter {
+    border-right: 2px solid white;
+    display: inline-block;
+    white-space: normal;
+}
+</style>
+
+</head>
+
+<body>
+
+<h1>Our Journey ❤️‍🩹</h1>
+
+<div class="box" id="story">
+
+<h2 id="title">Chapter 1</h2>
+<p id="text" class="typewriter"></p>
+
+<button onclick="next()">Next ➝</button>
+
+</div>
+
+<script>
+
+let chapter = 1;
+
+function typeWriter(element, text, speed = 50) {
+    element.innerHTML = "";
+    let i = 0;
+
+    function typing() {
+        if (i < text.length) {
+            element.innerHTML += text.charAt(i);
+            i++;
+            setTimeout(typing, speed);
+        }
+    }
+
+    typing();
+}
+
+function next() {
+
+    let box = document.getElementById("story");
+
+    box.classList.add("fade");
+
+    setTimeout(() => {
+
+        chapter++;
+
+        if(chapter === 2){
+            document.getElementById("title").innerText = "Chapter 2";
+            typeWriter(
+                document.getElementById("text"),
+                "We became close… shared everything… you became my safe place ❤️",
+                55
+            );
+        }
+
+        else if(chapter === 3){
+            document.getElementById("title").innerText = "Chapter 3";
+            typeWriter(
+                document.getElementById("text"),
+                "Then distance came… misunderstandings started… and I lost you slowly 💔",
+                60
+            );
+        }
+
+        else if(chapter === 4){
+            document.getElementById("title").innerText = "Ending";
+            typeWriter(
+                document.getElementById("text"),
+                "Even if we are not the same anymore… you will always be a part of my story 🥀",
+                60
+            );
+        }
+
+        else {
+            document.getElementById("title").innerText = "The End";
+            typeWriter(
+                document.getElementById("text"),
+                "Some people don’t leave… they just become memories that never fade ❤️‍🩹",
+                70
+            );
+        }
+
+        box.classList.remove("fade");
+
+    }, 800);
+}
+
+/* first load text */
+typeWriter(
+    document.getElementById("text"),
+    "I met you at bootcamp… I didn’t know you would become so important.",
+    50
+);
+
+</script>
+
+</body>
+</html>
